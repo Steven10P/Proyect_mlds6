@@ -2,21 +2,27 @@
 
 ## Origen de los datos
 
-- [ ] Especificar la fuente de los datos y la forma en que se obtuvieron. 
+- los datos son obtenidos desde Kaggle desde el link https://www.kaggle.com/datasets/emirhanakku/climate-and-energy-consumption-dataset-20202024 
 
 ## Especificación de los scripts para la carga de datos
 
-- [ ] Especificar los scripts utilizados para la carga de los datos. 
+-se importan a colab con la librerias  kagglehub, ky la función KaggleDatasetAdapter
+      
+file_path = "global_climate_energy_2020_2024.csv"
+df = kagglehub.load_dataset(
+  KaggleDatasetAdapter.PANDAS,
+  "emirhanakku/climate-and-energy-consumption-dataset-20202024",
+  file_path,)
 
 ## Referencias a rutas o bases de datos origen y destino
 
-- [ ] Especificar las rutas o bases de datos de origen y destino para los datos.
+-la Data de Origen es un archivo csv llamadao global_climate_energy_2020_2024.csv
 
 ### Rutas de origen de datos
 
-- [ ] Especificar la ubicación de los archivos de origen de los datos.
-- [ ] Especificar la estructura de los archivos de origen de los datos.
-- [ ] Describir los procedimientos de transformación y limpieza de los datos.
+- la ruta de origen en Kaggle emirhanakku/climate-and-energy-consumption-dataset-20202024/global_climate_energy_2020_2024.csv
+- [ ] Este conjunto de datos proporciona cinco años (2020-2024) de datos sintéticos diarios que combinan indicadores climáticos globales y estadísticas de consumo energético de 50 países de todos los continentes.
+  
 
 ### Base de datos de destino
 
