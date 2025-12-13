@@ -1,6 +1,8 @@
-# Team Data Science Project Template
+# Energy Consumption Prediction Project
 
-Esta plantilla es una implementación de la plantilla de proyecto de Team Data Science Process que actualmente se utiliza en el "Programa de Formación en Machine Learning y Data Science" en la Universidad Nacional de Colombia.
+Este proyecto implementa un modelo de Machine Learning para predecir el consumo diario de energía (MWh) en múltiples países, siguiendo la metodología CRISP-DM. El proyecto abarca desde la limpieza de datos sintéticos y la ingeniería de características hasta la evaluación de modelos de Regresión Lineal y Random Forest.
+
+Esta estructura se basa en la plantilla de Team Data Science Process (TDSP) utilizada en el "Programa de Formación en Machine Learning y Data Science" de la Universidad Nacional de Colombia.
 
 Esta plantilla proporciona las siguientes carpetas y archivos:
 
