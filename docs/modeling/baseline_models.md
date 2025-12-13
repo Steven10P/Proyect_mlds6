@@ -52,7 +52,9 @@ El desempeño del modelo baseline es **deficiente**, lo cual es consistente con 
 
 
 
-##Conclusiones1. **Insuficiencia del Modelo Lineal:** Se confirma que el consumo de energía en este dataset no sigue patrones lineales simples con respecto a las variables exógenas proporcionadas.
+## Conclusiones
+
+1. **Insuficiencia del Modelo Lineal:** Se confirma que el consumo de energía en este dataset no sigue patrones lineales simples con respecto a las variables exógenas proporcionadas.
 2. **Necesidad de Modelos No Lineales:** Es imperativo avanzar hacia modelos basados en árboles de decisión (como **Random Forest** o **XGBoost**) que puedan segmentar los datos y encontrar patrones no lineales.
 3. **Enfoque en Series de Tiempo:** La baja capacidad predictiva de las variables externas sugiere que el valor predictivo reside en la historia de la propia variable (autocorrelación). Se recomienda explorar modelos que utilicen "lags" (consumo del día anterior) o redes neuronales recurrentes (LSTM).
 
