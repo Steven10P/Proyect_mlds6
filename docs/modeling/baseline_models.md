@@ -1,5 +1,6 @@
 # Reporte del Modelo Baseline: 
-Regresión LinealEste documento contiene los resultados del modelo baseline 
+Regresión Lineal
+Este documento contiene los resultados del modelo baseline 
 
 ## Descripción del modelo
 El modelo baseline seleccionado es una **Regresión Lineal Múltiple** (`LinearRegression` de Scikit-Learn).
