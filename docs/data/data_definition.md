@@ -6,7 +6,7 @@
 
 ## Especificación de los scripts para la carga de datos
 
--se importan a colab con la librerias  kagglehub, ky la función KaggleDatasetAdapter
+-se importan a colab con la librerias  kagglehub, con la la función KaggleDatasetAdapter
       
 file_path = "global_climate_energy_2020_2024.csv"
 df = kagglehub.load_dataset(
