@@ -56,6 +56,3 @@ El desempeño del modelo baseline es **deficiente**, lo cual es consistente con 
 2. **Necesidad de Modelos No Lineales:** Es imperativo avanzar hacia modelos basados en árboles de decisión (como **Random Forest** o **XGBoost**) que puedan segmentar los datos y encontrar patrones no lineales.
 3. **Enfoque en Series de Tiempo:** La baja capacidad predictiva de las variables externas sugiere que el valor predictivo reside en la historia de la propia variable (autocorrelación). Se recomienda explorar modelos que utilicen "lags" (consumo del día anterior) o redes neuronales recurrentes (LSTM).
 
-##Referencias1. **Scikit-learn Developers.** (2024). *User Guide: Linear Models*. Scikit-learn.org.
-2. **Wirth, R. & Hipp, J.** (2000). *CRISP-DM: Towards a standard process model for data mining*.
-3. **Documentación interna del proyecto:** Reporte de Análisis Exploratorio de Datos (EDA) y Diccionario de Datos.
