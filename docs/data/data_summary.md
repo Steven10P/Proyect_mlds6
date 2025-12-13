@@ -2,7 +2,9 @@ Aquí tienes el **Reporte de Datos** estructurado según tus requerimientos y ba
 
 ---
 
-#Reporte de DatosEste documento contiene los resultados del análisis exploratorio de datos (EDA) bajo el marco del proyecto CRISP-DM, cuyo objetivo es predecir el **consumo de energía**.
+# Reporte de Datos
+
+Este documento contiene los resultados del análisis exploratorio de datos (EDA) bajo el marco del proyecto CRISP-DM, cuyo objetivo es predecir el **consumo de energía**.
 
 ##Resumen general de los datosEl dataset consta de un total de **36,540 observaciones** y **10 variables** (8 numéricas y 2 categóricas/objeto). Los datos abarcan un rango temporal diario desde el 1 de enero de 2020 hasta el año 2025.
 
@@ -13,7 +15,7 @@ Aquí tienes el **Reporte de Datos** estructurado según tus requerimientos y ba
 **Observación clave sobre la naturaleza de los datos:**
 El análisis preliminar sugiere fuertemente que se trata de un **dataset sintético**. La evidencia principal es la alta variabilidad diaria en variables estructurales como `urban_population`, la cual presenta desviaciones estándar de ~8.8 para países como Alemania y Polonia, lo cual es demográficamente imposible en periodos cortos (cambios diarios del ~10%).
 
-##Resumen de calidad de los datosLa calidad técnica de los datos es alta en términos de completitud, pero presenta desafíos en coherencia lógica (verosimilitud).
+## Resumen de calidad de los datosLa calidad técnica de los datos es alta en términos de completitud, pero presenta desafíos en coherencia lógica (verosimilitud).
 
 * **Valores faltantes (Nulls):** 0% (0 registros). No se requieren imputaciones.
 * **Duplicados:** No se reportan duplicados exactos en la estructura base.
@@ -27,13 +29,15 @@ El análisis preliminar sugiere fuertemente que se trata de un **dataset sintét
 
 
 
-##Variable objetivoLa variable objetivo para este proyecto es **`energy_consumption`** (Consumo de Energía).
+## Variable objetivo
+
+La variable objetivo para este proyecto es **`energy_consumption`** (Consumo de Energía).
 
 * **Distribución:** Según el diagrama de caja, la variable se distribuye principalmente entre los 4,000 y 10,000 (probablemente MWh), con una mediana cercana a 7,000.
 * **Comportamiento Temporal:** El gráfico de evolución global muestra una **estacionalidad muy marcada**. Se observan ciclos anuales claros donde el consumo sube y baja repetitivamente, lo cual es consistente con patrones de consumo energético (calefacción en invierno/aire acondicionado en verano).
 * **Tendencia:** No se observa una tendencia alcista o bajista pronunciada a largo plazo entre 2020 y 2025; el comportamiento es cíclico y estable.
 
-##Variables individualesAnálisis basado en la distribución visual (Boxplots):
+## Variables individualesAnálisis basado en la distribución visual (Boxplots):
 
 * **`avg_temperature` y `humidity`:** Presentan distribuciones muy compactas y rangos estrechos, con muy poca dispersión.
 * **`co2_emission`:** Muestra una distribución con una mediana baja pero con varios valores atípicos hacia la parte superior (cola derecha).
