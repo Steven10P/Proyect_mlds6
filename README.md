@@ -1,4 +1,4 @@
-# Energy Consumption Prediction Project
+# Predicción de Consumo Energético: De Datos Crudos a Producción
 
 Este proyecto implementa un modelo de Machine Learning para predecir el consumo diario de energía (MWh) en múltiples países, siguiendo la metodología CRISP-DM. El proyecto abarca desde la limpieza de datos sintéticos y la ingeniería de características hasta la evaluación de modelos de Regresión Lineal y Random Forest.
 
