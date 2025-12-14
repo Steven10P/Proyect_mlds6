@@ -12,18 +12,18 @@ def plot_numeric_distributions(df, columns):
     Es general: funciona con cualquier lista de variables.
     """
     if not columns:
-        print("⚠️ No se proporcionaron columnas para graficar.")
+        print(" No se proporcionaron columnas para graficar.")
         return
 
     # 1. Histogramas
-    print(f"📊 Generando histogramas para {len(columns)} variables...")
+    print(f" Generando histogramas para {len(columns)} variables...")
     df[columns].hist(bins=30, figsize=(20, 15), color='skyblue', edgecolor='black')
     plt.suptitle('Distribución de Variables Numéricas', fontsize=16)
     plt.tight_layout(rect=[0, 0.03, 1, 0.95]) # Ajuste para que no se corte el título
     plt.show()
 
     # 2. Boxplots (Outliers)
-    print("📦 Generando Boxplots para detección de outliers...")
+    print(" Generando Boxplots para detección de outliers...")
     plt.figure(figsize=(20, 10))
     sns.boxplot(data=df[columns], orient='h', palette="Set2")
     plt.title('Detección de Outliers (Valores Atípicos)', fontsize=16)
@@ -33,7 +33,7 @@ def plot_correlation_heatmap(df, columns):
     """
     Calcula y grafica la matriz de correlación para las columnas dadas.
     """
-    print("🔥 Generando Mapa de Calor de Correlaciones...")
+    print(" Generando Mapa de Calor de Correlaciones...")
     corr_matrix = df[columns].corr()
 
     plt.figure(figsize=(12, 10))
@@ -48,7 +48,7 @@ def plot_dual_axis_timeseries(df, date_col, col1, col2, label1=None, label2=None
     """
     # Verificación
     if date_col not in df.columns:
-        print(f"❌ La columna de fecha '{date_col}' no existe.")
+        print(f" La columna de fecha '{date_col}' no existe.")
         return
 
     # Agrupación por fecha (promedio diario)
@@ -78,7 +78,7 @@ def plot_categorical_ranking(df, cat_col, num_col, top_n=10):
     Genera un gráfico de barras (Ranking) para una categoría vs un valor numérico.
     Ej: Top 10 Países (cat_col) por Consumo Energía (num_col).
     """
-    print(f"🏆 Generando Top {top_n} de '{cat_col}' por '{num_col}'...")
+    print(f" Generando Top {top_n} de '{cat_col}' por '{num_col}'...")
     
     # Calcular promedio y ordenar
     ranking = df.groupby(cat_col)[num_col].mean().sort_values(ascending=False).head(top_n)

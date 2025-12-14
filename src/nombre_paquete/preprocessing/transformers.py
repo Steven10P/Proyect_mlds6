@@ -18,7 +18,7 @@ def preprocess_data(df):
         # Ordenar cronológicamente (VITAL para series de tiempo)
         df_proc = df_proc.sort_values(by=['country', 'date'])
     else:
-        print("⚠️ Advertencia: No se encontró columna 'date'.")
+        print(" Advertencia: No se encontró columna 'date'.")
 
     # 3. Limpieza (Rolling Mean para Urban Population)
     # Suaviza saltos irrealistas en la data
@@ -40,39 +40,46 @@ def preprocess_data(df):
     # 6. Establecer índice
     df_proc = df_proc.set_index('date')
     
-    print(f"✅ Preprocesamiento completado. Shape final: {df_proc.shape}")
+    print(f" Preprocesamiento completado. Shape final: {df_proc.shape}")
     return df_proc
+# En transformers.py
 
-def split_and_scale(df, cutoff_date='2024-01-01'):
+def split_and_scale(df, target_col='energy_consumption', cutoff_date='2024-01-01'):
     """
-    Divide en train/test cronológicamente y escala las variables numéricas.
-    Retorna: train_scaled, test_scaled, scaler_object
+    Divide en train/test y escala SOLO las variables predictoras (X),
+    dejando el target (y) en sus unidades originales.
     """
-    print(f" Dividiendo datos con fecha de corte: {cutoff_date}")
+    print(f" Dividiendo datos. Target: {target_col}")
     
     # 1. División Train / Test
     train = df[df.index < cutoff_date].copy()
     test = df[df.index >= cutoff_date].copy()
-    
-    if len(test) == 0:
-        print(" CUIDADO: El set de Test está vacío. Revisa la fecha de corte.")
 
     # 2. Configurar el Scaler
     scaler = StandardScaler()
 
-    # Identificar columnas a escalar (excluyendo las one-hot encoded)
-    # Excluimos las que tienen "country_" y también las de fecha (month, day, etc si no quieres escalarlas)
-    cols_to_scale = [c for c in train.columns if 'country_' not in c and c not in ['month', 'day_of_week', 'quarter']]
+    # IDENTIFICAR COLUMNAS A ESCALAR (X)
+    # Excluímos:
+    # - El target (¡IMPORTANTE!)
+    # - Las categóricas encoded (country_...)
+    # - Las de fecha (month, day...) si no quieres escalarlas
+    cols_to_exclude = [target_col, 'month', 'day_of_week', 'quarter']
     
-    print(f" Escalando {len(cols_to_scale)} variables numéricas...")
+    # Seleccionamos solo las columnas que NO están en la lista de exclusión y NO empiezan con 'country_'
+    cols_to_scale = [c for c in train.columns 
+                     if c not in cols_to_exclude 
+                     and not c.startswith('country_')]
 
-    # 3. Escalado
-    # Ajustar (fit) SOLO con train para evitar Data Leakage
-    train_scaled = train.copy()
-    test_scaled = test.copy()
+    print(f" Escalando {len(cols_to_scale)} features (Input)...")
+    print(f"  Variables a escalar: {cols_to_scale}")
 
-    if cols_to_scale:
-        train_scaled[cols_to_scale] = scaler.fit_transform(train[cols_to_scale])
-        test_scaled[cols_to_scale] = scaler.transform(test[cols_to_scale])
+    # 3. Escalado (SOLO A LAS FEATURES)
+    # Ajustar (fit) solo con train
+    scaler.fit(train[cols_to_scale])
+
+    # Transformar train y test
+    train[cols_to_scale] = scaler.transform(train[cols_to_scale])
+    test[cols_to_scale] = scaler.transform(test[cols_to_scale])
     
-    return train_scaled, test_scaled, scaler
+    # Retornamos los dataframes con X escalado pero Y original
+    return train, test, scaler
