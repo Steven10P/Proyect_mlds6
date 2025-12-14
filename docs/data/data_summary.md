@@ -48,7 +48,8 @@ La variable objetivo para este proyecto es **`energy_consumption`** (Consumo de 
 **Transformaciones sugeridas:**
 Dada la fuerte estacionalidad vista en la variable objetivo, se sugiere aplicar ingeniería de características (Feature Engineering) sobre la variable `date` para extraer: `mes`, `día_semana`, `estación_año`.
 
-##Ranking de variablesBasado en la Matriz de Correlación de Pearson, la relación lineal entre las variables explicativas y la variable objetivo es sorprendentemente baja.
+## Ranking de variables
+Basado en la Matriz de Correlación de Pearson, la relación lineal entre las variables explicativas y la variable objetivo es sorprendentemente baja.
 
 **Ranking por correlación lineal absoluta con `energy_consumption`:**
 
@@ -60,7 +61,8 @@ Dada la fuerte estacionalidad vista en la variable objetivo, se sugiere aplicar 
 **Conclusión del Ranking:**
 Los métodos lineales simples no serán efectivos para seleccionar las mejores variables. Aunque `co2_emission` aparece primera, una correlación de 0.17 es insignificante. Es probable que la relación sea **no lineal** o que la capacidad predictiva resida casi exclusivamente en los patrones temporales (series de tiempo) más que en las variables exógenas.
 
-##Relación entre variables explicativas y variable objetivoEl análisis bivariado revela una independencia lineal casi total entre los predictores y el objetivo, con una excepción notable en la visualización temporal.
+## Relación entre variables explicativas y variable objetivo
+El análisis bivariado revela una independencia lineal casi total entre los predictores y el objetivo, con una excepción notable en la visualización temporal.
 
 * **Correlaciones:** Como muestra el mapa de calor, no existe multicolinealidad entre las variables explicativas (todas las relaciones son ~0.00), lo cual es positivo para la estabilidad del modelo, pero preocupante por la falta de señal predictiva lineal.
 * **Relación CO2 vs Energía:** Aunque la correlación matemática es baja (0.17), el gráfico temporal muestra que las curvas de `Emisiones CO2` (rojo) y `Consumo de Energía` (azul) a menudo se superponen o siguen ciclos similares.
