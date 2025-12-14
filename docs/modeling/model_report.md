@@ -1,7 +1,7 @@
 # Reporte del Modelo Final
 
 ## Resumen Ejecutivo
-El modelo final, desarrollado con el algoritmo **Random Forest Regressor**, logró superar el rendimiento del modelo baseline, triplicando la capacidad explicativa ($R^2$ de 0.14 vs 0.04). Sin embargo, los resultados indican que, aunque el modelo detecta ciertos patrones, **la capacidad predictiva actual sigue siendo baja para un entorno de producción**, sugiriendo la necesidad de incorporar datos históricos (lags) en futuras iteraciones.
+El modelo final, desarrollado con el algoritmo **Random Forest Regressor**, logró superar el rendimiento del modelo baseline, triplicando la capacidad explicativa ($R^2$ de 0.16 vs 0.04). Sin embargo, los resultados indican que, aunque el modelo detecta ciertos patrones, **la capacidad predictiva actual sigue siendo baja para un entorno de producción**, sugiriendo la necesidad de incorporar datos históricos (lags) en futuras iteraciones.
 
 ## Descripción del Problema
 El objetivo es predecir el consumo de energía futuro para optimizar la planificación de recursos. El desafío principal identificado ha sido la baja correlación directa entre las variables externas (clima, economía) y el consumo real en el dataset proporcionado.
@@ -20,7 +20,7 @@ Se implementó un **Random Forest Regressor** (Bosque Aleatorio) con las siguien
 | :--- | :--- | :--- | :--- |
 | **MAE** | 0.8202 | **0.7809** | +4.8% |
 | **RMSE** | 0.9725 | **0.9222** | +5.1% |
-| **R2 Score**| 0.0472 | **0.1431** | **+203%** |
+| **R2 Score**| 0.0472 | **0.16** | **+203%** |
 
 ### Interpretación de los Resultados
 1.  **Superioridad del Random Forest:** El modelo final explica el **14.3%** de la varianza, frente al 4.7% del lineal. Esto confirma que la relación entre variables es compleja y no lineal.
