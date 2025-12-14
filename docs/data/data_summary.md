@@ -6,7 +6,8 @@ Aquí tienes el **Reporte de Datos** estructurado según tus requerimientos y ba
 
 Este documento contiene los resultados del análisis exploratorio de datos (EDA) bajo el marco del proyecto CRISP-DM, cuyo objetivo es predecir el **consumo de energía**.
 
-##Resumen general de los datosEl dataset consta de un total de **36,540 observaciones** y **10 variables** (8 numéricas y 2 categóricas/objeto). Los datos abarcan un rango temporal diario desde el 1 de enero de 2020 hasta el año 2025.
+## Resumen general de los datos
+El dataset consta de un total de **36,540 observaciones** y **10 variables** (8 numéricas y 2 categóricas/objeto). Los datos abarcan un rango temporal diario desde el 1 de enero de 2020 hasta el año 2025.
 
 * **Variables Temporales:** `date` (diaria).
 * **Variables Geográficas:** `country`.
